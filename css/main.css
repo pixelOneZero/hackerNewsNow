@@ -1,0 +1,15 @@
+html {
+	font-family: helvetica, sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight: lighter;
+}
+.error {
+	background:#fd4;
+	border:1px solid #999;
+	padding:45px;
+
+}
+a {
+	color:#f50;
+}
