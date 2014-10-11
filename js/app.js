@@ -22,13 +22,18 @@ var app = {
 		});
 	},
 	getStory: function(uri) {
-		$.getJSON( uri, function(data) {	
-			app.writeHeadline(data.title);
+		$.getJSON( uri, function(data) {
+			headline = "<a href='" + data.url + "' target='_blank'>" + data.title + ", posted " + app.convertUnixTime(data.time) + "</a>";
+			app.writeHeadline(headline);
 		});
 	},
 	writeHeadline: function(title) {
 		var headlinesList = $('[data-container=headlines]');
 		headlinesList.append('<li>' + title + '</li>');
+	},
+	convertUnixTime: function(unixTime) {
+		var date = new Date(unixTime * 1000);
+		return date;
 	}
 }
 
