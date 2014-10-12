@@ -23,7 +23,8 @@ var app = {
 	},
 	getStory: function(uri) {
 		$.getJSON( uri, function(data) {
-			headline = "<a href='" + data.url + "' target='_blank'>" + data.title + ", posted " + app.convertUnixTime(data.time) + "</a>";
+			headline = "<a href='" + data.url + "' target='_blank'>" + data.title + "</a>";
+			headline += "<small>, score: " + data.score + ", posted " + app.convertUnixTime(data.time) + "</small>";
 			app.writeHeadline(headline);
 		});
 	},

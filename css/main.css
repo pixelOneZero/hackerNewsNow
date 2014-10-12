@@ -1,8 +1,20 @@
 html {
 	font-family: helvetica, sans-serif;
 }
-h1,h2,h3,h4,h5,h6 {
-	font-weight: lighter;
+body {
+    margin:0;
+    padding:0;
+}
+header {
+    position:fixed;
+    background:#fff;
+    width:100%;
+}
+h1,h2{
+    margin:.25em;
+}
+h2 {
+    margin:0 .4em;
 }
 .error {
 	background:#fd4;
@@ -10,6 +22,22 @@ h1,h2,h3,h4,h5,h6 {
 	padding:45px;
 
 }
+ul {
+    margin:0;
+    padding:7em 1em;
+}
+li {
+    padding:1.25em 0;
+    margin:0;
+    list-style-type: none;
+    border-bottom:1px solid #aaa;
+}
+li:hover {
+    background:#ddd;
+}
 a {
-	color:#f50;
+	color:#05f;
+}
+a:visited {
+    color:#999;
 }
