@@ -4,6 +4,10 @@ Tasks:
 - Remove Angular dependencies
 - Use fetch for asynchronous requests
 - Remove jquery dependencies
+- Add form control to sort stories by:
+		- new
+		- top
+		- best
 */
 
 var app = {
