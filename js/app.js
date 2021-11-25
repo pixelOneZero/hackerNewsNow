@@ -1,7 +1,9 @@
 /*
 
 Tasks:
-- 
+- Remove Angular dependencies
+- Use fetch for asynchronous requests
+- Remove jquery dependencies
 */
 
 var app = {
@@ -15,7 +17,7 @@ var app = {
 		var storyUri;
 
 		$.getJSON( app.endpoints.topStories, function(data) {
-			$.each(data, function(i) {	
+			$.each(data, function(i) {
 				storyUri = app.endpoints.story + data[i] + ".json";
 				app.getStory(storyUri);
 			})
