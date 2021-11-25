@@ -12,4 +12,5 @@ Running the application locally
 -------------------------------
 
 From the command line run (assuming Python is installed and you are using Mac OS):
+
 `python -m SimpleHTTPServer`
