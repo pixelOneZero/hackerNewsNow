@@ -14,3 +14,14 @@ Running the application locally
 From the command line run (assuming Python is installed and you are using Mac OS):
 
 `python -m SimpleHTTPServer`
+
+
+Release notes
+-------------------------------
+Version 0.1
+(todo: Add details)
+
+Version 0.1.1
+* Remove Angular and JQuery references and files
+* Add ES6 syntax
+* Add release notes section to this README file.
