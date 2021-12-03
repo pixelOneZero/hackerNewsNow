@@ -1,10 +1,10 @@
 /*
 
 Tasks:
-- Remove Angular dependencies
-- Remove jquery dependencies
+done - Remove Angular dependencies
+done - Remove jquery dependencies
+done - Use fetch for asynchronous requests
 - Add local storage caching
-- Use fetch for asynchronous requests
 - Add form control to sort stories by:
 		- new
 		- top
@@ -20,25 +20,40 @@ Tasks:
 						"story": "https://hacker-news.firebaseio.com/v0/item/"
 				},
 				init: function() {
-						var storyUri;
+						let storyUri;
 
-						$.getJSON( app.endpoints.topStories, function(data) {
-								$.each(data, function(i) {
-										storyUri = app.endpoints.story + data[i] + ".json";
-										app.getStory(storyUri);
-								})
-						});
+						fetch(app.endpoints.topStories)
+						  .then(response => response.json())
+							.then(data => {
+								for (story in data) {
+									console.log(story);
+									storyUri = app.endpoints.story + story + ".json";
+									app.getStory(storyUri);
+								}
+							})
+							.catch(error => {
+						    console.error('There has been a problem with your fetch operation:', error);
+						  });
 				},
 				getStory: function(uri) {
-						$.getJSON( uri, function(data) {
-								headline = "<a href='" + data.url + "' target='_blank'>" + data.title + "</a>";
-								headline += "<small>, score: " + data.score + ", posted " + app.convertUnixTime(data.time) + "</small>";
-								app.writeHeadline(headline);
+					fetch(uri)
+						.then(response => response.json())
+						.then(data => {
+								if (data?.title) {
+									headline = "<a href='" + data.url + "' target='_blank'>" + data.title + "</a>";
+									headline += "<small>, score: " + data.score + ", posted " + app.convertUnixTime(data.time) + "</small>";
+									app.writeHeadline(headline);
+								}
+						})
+						.catch(error => {
+							console.error('There has been a problem with your fetch operation:', error);
 						});
 				},
 				writeHeadline: function(title) {
-						var headlinesList = $('[data-container=headlines]');
-						headlinesList.append('<li>' + title + '</li>');
+						const headlinesList = document.querySelector('[data-container=headlines]');
+						if (headlinesList) {
+							headlinesList.innerHTML += `<li>${title}</li>`;
+						}
 				},
 				convertUnixTime: function(unixTime) {
 						var date = new Date(unixTime * 1000);
