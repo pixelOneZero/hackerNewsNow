@@ -25,6 +25,10 @@ done - Use fetch for asynchronous requests
 			fetch(app.endpoints.topStories)
 			  .then(response => response.json())
 				.then(data => {
+					const cachedStories = localStorage.getItem('cachedStories');
+					if (cachedStories === null) {
+						localStorage.setItem('cachedStories', data);
+					}
 					for (story in data) {
 						storyUri = `${app.endpoints.story}${story}.json`;
 						app.getStory(storyUri);
