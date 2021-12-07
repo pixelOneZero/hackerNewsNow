@@ -43,8 +43,7 @@ done - Use fetch for asynchronous requests
 				.then(response => response.json())
 				.then(data => {
 					if (data?.title) {
-						headline = `<a href='${data.url}' target='_blank'>${data.title}</a>
-							<small>, score: ${data.score}, posted ${app.convertUnixTime(data.time)}</small>`;
+						const headline = `<a href='${data.url}' target='_blank'>${data.title}</a>, score: ${data.score}, posted ${app.convertUnixTime(data.time)}`;
 						app.writeHeadline(headline);
 					}
 				})
