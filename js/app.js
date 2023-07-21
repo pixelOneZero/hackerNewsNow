@@ -1,16 +1,3 @@
-/*
-
-Tasks:
-done - Remove Angular dependencies
-done - Remove jquery dependencies
-done - Use fetch for asynchronous requests
-- Add local storage caching
-- Add form control to sort stories by:
-		- new
-		- top
-		- best
-*/
-
 (() => {
 	const app = {
 		"name": "HackerNewsNow",
